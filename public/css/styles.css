@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+	margin-bottom: 50px;
+}
+
+.main {
+    
+}
+
+.input {
+    
+}
+
+.output {
+/*    border: 1px solid;*/
+}
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.fileUpload span {
+	margin-right: 15px;
+}
+.fileUpload input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	opacity: 0;
+	font: 1.1em;
+}

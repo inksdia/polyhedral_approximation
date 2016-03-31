@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Graphics - Assignment #4</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="container">
+			<h1>Polyhedral approximation of a 3D mesh - SVG</h1>
+			<div class="row main">
+				<div class="col-md-3 input">
+					<form name="form" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<span class="fileUpload btn btn-default">
+								<span class="glyphicon glyphicon-upload"></span>Upload Mesh file
+								<input name="file" type="file" id="uploadFile">
+							</span>
+						</div>
+						<p id="fileUploadError" class="text-danger hide"></p>
+						<div class="list-group" id="files"></div>
+					</form>
+					<form id="args" method = "post" action="/">
+						<div class="form-group">
+							<label for="distance">Distance Threshold</label>
+							<input name="distance" type="text" class="form-control" id="distance" value="0.0">
+						</div>
+						<div class="form-group">
+							<label for="">Camera Position</label>
+							<div class="input-group">
+								<span class="input-group-addon" id="xcamera">X</span>
+								<input name="x" type="text" class="form-control" value="10.0" aria-describedby="xcamera">
+							</div>  
+							<div class="input-group">
+								<span class="input-group-addon" id="xcamera">Y</span>
+								<input name="y" type="text" class="form-control" value="10.0" aria-describedby="xcamera">
+							</div>  
+							<div class="input-group">
+								<span class="input-group-addon" id="xcamera">Z</span>
+								<input name="z" type="text" class="form-control" value="10.0" aria-describedby="xcamera">
+							</div>  
+						</div>
+						<button type="submit" id="done" class="btn btn-default">Submit</button>
+					</form>
+					
+				</div>
+				<div class="col-md-9 output">
+					<img id="batman" src="images/batman.jpg">
+					<div id="outputImage">
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								<!--							<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+							</ol>
+
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" role="listbox">
+								<div class="item active">
+									<img id="insvg" src="" alt="Input Image">
+									<div class="carousel-caption" style="color:black;">Input Image</div>
+								</div>
+								<div class="item">
+									<img id="outsvg" src="" alt="...">
+									<div class="carousel-caption" style="color:black;">Output Image</div>
+								</div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+					
+					<div id="response"></div>
+					
+				</div>
+			</div>
+		</div>
+
+		<script id="fileUploadProgressTemplate" type="text/x-jquery-tmpl">
+    <div class="list-group-item">
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-info" style="width: 0%;"></div>
+			</div>
+			</div>
+		</script>
+
+		<script id="fileUploadItemTemplate" type="text/x-jquery-tmpl">
+    <div class="list-group-item">
+        <button type="button" class="close">&times;</button>
+        <span class="glyphicon glyphicon-file">${filename}</span>
+			</div>
+		</script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
