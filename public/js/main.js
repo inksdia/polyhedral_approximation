@@ -21,7 +21,7 @@ $("#args").submit(function( event ) {
 	
 	$.ajax({
 		type        : 'POST',
-		url         : '/api/solve',
+		url         : 'api/solve',
 		data        : args,
 		dataType    : 'text',
 		encode      : true,
@@ -55,7 +55,7 @@ $("#uploadFile").change(function() {
 	$("#done").prop('disabled', false);
 
 	$.ajax({
-		url: '/api/uploads/',
+		url: 'api/uploads/',
 		type: 'POST',
 		xhr: function() {
 			var xhr = $.ajaxSettings.xhr();
@@ -69,13 +69,15 @@ $("#uploadFile").change(function() {
 		},
 		success: function(data) {
 			console.log(data);
-			$("#files").children().last().remove();
+			//$("#files").children().last().remove();
+			$("#files").empty();
 			$("#files").append($("#fileUploadItemTemplate").tmpl(data));
 			$("#uploadFile").closest("form").trigger("reset");
 		},
 		error: function() {
 			$("#fileUploadError").removeClass("hide").text("An error occured!");
-			$("#files").children().last().remove();
+//			$("#files").children().last().remove();
+			$("#files").empty();
 			$("#uploadFile").closest("form").trigger("reset");
 		},
 		data: formData,

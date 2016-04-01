@@ -23,7 +23,7 @@
 						<div class="form-group">
 							<span class="fileUpload btn btn-default">
 								<span class="glyphicon glyphicon-upload"></span>Upload Mesh file
-								<input name="file" type="file" id="uploadFile">
+								<input name="file" type="file" id="uploadFile" accept=".obj">
 							</span>
 						</div>
 						<p id="fileUploadError" class="text-danger hide"></p>
@@ -51,7 +51,21 @@
 						</div>
 						<button type="submit" id="done" class="btn btn-default">Submit</button>
 					</form>
-					
+					<div id="sample">
+						<div>Sample Object File</div>
+						<div class="row">
+							<div class="col-3-sm">
+								<a href="images/canstick.obj"><img src="images/canstick.png" class="img-responsive"></a>
+							</div>
+							<div  class="col-3-sm">
+								<a href="images/mug.obj"><img src="images/mug.png" class="img-responsive"></a>
+							</div>
+							<div  class="col-3-sm">
+								<a href="images/apple.obj"><img src="images/apple.png" class="img-responsive"></a>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<div class="col-md-9 output">
 					<img id="batman" src="images/batman.jpg">
@@ -87,9 +101,7 @@
 							</a>
 						</div>
 					</div>
-					
 					<div id="response"></div>
-					
 				</div>
 			</div>
 		</div>
