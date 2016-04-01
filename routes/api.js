@@ -1,13 +1,13 @@
 var express = require('express');
 var multer  = require('multer');
 const execFile = require('child_process').execFile;
-var inputFile;
+//var inputFile;
 
 var upload = multer({ dest: './algo' });
 var router = express.Router();
 
 router.post('/uploads', upload.single('file'), function(req, res, next) {
-	inputFile = req.file.filename;
+//	inputFile = req.file.filename;
 	res.json(req.file);
 	res.status(200).end();
 });
@@ -15,7 +15,7 @@ router.post('/uploads', upload.single('file'), function(req, res, next) {
 router.post('/solve', function(req, res) {
 	var reqbody = req.body;
 	var args = [];
-	args.push(inputFile);
+	args.push(reqbody['filename']);
 	args.push(reqbody['distance']);
 	args.push(reqbody['x']);
 	args.push(reqbody['y']);

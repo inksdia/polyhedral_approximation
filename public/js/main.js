@@ -7,6 +7,12 @@ $( document ).ready(function() {
 $("#args").submit(function( event ) {
 	var args = $("#args").serializeArray();
 	
+//	console.log($("div#files.list-group span.glyphicon.glyphicon-file").text());
+	
+	var filename = $("div#files.list-group span.glyphicon.glyphicon-file").text();
+	
+	args.push({name: 'filename', value: filename});
+	
 //	var viewh = $("#outputImage").height()/2;
 //	var vieww = $("#outputImage").width()/2;
 	var viewh = 400;
@@ -17,7 +23,7 @@ $("#args").submit(function( event ) {
 	
 	$("#done").prop('disabled', true);
 	
-	console.log(args);
+	//console.log(args);
 	
 	$.ajax({
 		type        : 'POST',
@@ -68,7 +74,7 @@ $("#uploadFile").change(function() {
 			return xhr;
 		},
 		success: function(data) {
-			console.log(data);
+			//console.log(data);
 			//$("#files").children().last().remove();
 			$("#files").empty();
 			$("#files").append($("#fileUploadItemTemplate").tmpl(data));
